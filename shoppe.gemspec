@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'fog', '1.38.0'
   s.add_dependency 'net-ssh', '3.2.0'
   s.add_dependency 'mini_magick', '4.5.1'
-  s.add_dependency 'json', '1.8.3'
+  s.add_dependency 'json', '1.8.6'
 
   s.add_development_dependency 'coffee-rails', '4.2.1'
   s.add_development_dependency 'sass-rails', '5.0.6'

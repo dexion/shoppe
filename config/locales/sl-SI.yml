@@ -1,0 +1,791 @@
+﻿sl-SI:
+  activerecord:
+    models:
+      shoppe/address:
+        one: Naslov
+        other: Naslovi
+      shoppe/country:
+        one: Država
+        other: Države
+      shoppe/delivery_service:
+        one: Dostavna služba
+        other: Dostavne službe
+      shoppe/delivery_service_price:
+        one: Cena dostavne službe
+        other: Cenik dostavne službe
+      shoppe/order:
+        one: Naročilo
+        other: Naročila
+      shoppe/order_item:
+        one: Naročen izdelek
+        other: Naročeni izdelki
+      shoppe/payment:
+        one: Plačilo
+        other: Plačila
+      shoppe/product:
+        one: Izdelek
+        other: Izdelki
+      shoppe/product_attribute:
+        one: Lastnost izdelka
+        other: Lastnosti izdelka
+      shoppe/product_category:
+        one: Kategorija izdelkov
+        other: Kategorije izdelkov
+      shoppe/setting:
+        one: Nastavitev
+        other: Nastavitve
+      shoppe/stock_level_adjustment:
+        one: Nastavitev zalog
+        other: Nastavitve zalog
+      shoppe/tax_rate:
+        one: Davek
+        other: Davki
+      shoppe/user:
+        one: Uporabnik
+        other: Uporabniki
+
+    attributes:
+      shoppe/address:
+        address_type: Tip naslova
+        address1: Naslov 1
+        address2: Naslov 2
+        address3: Naslov 3
+        address4: Naslov 4
+        postcode: Poštna številka
+        country: Država
+      shoppe/order:
+        billing_address1: Plačilni naslov 1
+        billing_address3: Plačilni naslov 3
+        billing_address4: Plačilni naslov 4
+        billing_country: Država plačila
+        billing_postcode: Poštna številka plačila
+        delivery_address1: Naslov za dostavo 1
+        delivery_address3: Naslov za dostavo 3
+        delivery_address4: Naslov za dostavo 4
+        delivery_country: Država dostave
+        delivery_name: Ime dostave
+        delivery_service_id: Ponudnik dostave
+        delivery_postcode: Poštna številka dostave
+        email_address: Elektronski naslov
+        first_name: Ime
+        last_name: Priimek
+        phone_number: Telefonska številka
+        status: Status/Stanje
+        token: Token
+      shoppe/country:
+        name: Ime
+      shoppe/delivery_service:
+        name: Ime
+        courier: Dostavljalec
+      shoppe/delivery_service_price:
+        code: Koda
+        cost_price: Dobavna/Nakupna cena
+        max_weight: Maksimalna teža
+        min_weight: Minimalna teža
+        price: Cena
+      shoppe/order_item:
+        ordered_item: Naročen izdelek
+        quantity: Količina
+      shoppe/payment:
+        amount: Znesek
+        method: Način plačila
+        reference: Referenca
+      shoppe/product:
+        cost_price: Dobavna cena
+        description: Opis
+        name: Ime
+        permalink: Stalna povezava
+        price: Cena
+        short_description: Krajši opis
+        sku: SKU
+        weight: Teža
+      shoppe/product_attribute:
+        key: Ključ
+      shoppe/product_category:
+        name: Ime
+        permalink: Stalna povezava
+      shoppe/setting:
+        key: Ključ
+        value: Vrednost
+        value_type:  Vrsta vrednosti
+      shoppe/stock_level_adjustment:
+        adjustment: Sprememba
+        description: Opis
+        must_be_greater_or_equal_zero: Mora biti večje ali manj kot nič
+      shoppe/tax_rate:
+        address_type: Vrsta naslova
+        name: Ime
+        rate: Davčna stopnja
+      shoppe/user:
+        email_address: Elektronski naslov
+        first_name: Ime
+        last_name: Priimek
+        password: Geslo
+        password_confirmation: Potrditev gesla
+    errors:
+      template:
+        body: "Navedena polja so narobe izpolnjena:"
+        header:
+          one: zaradi 1 napake %{model} ni bilo mogoče shraniti
+          many: zaradi %{count} napak %{model} ni bilo mogoče shraniti
+          other: zaradi %{count} napak %{model} ni bilo mogoče shraniti
+      models:
+        shoppe/product_category:
+          attributes:
+            permalink:
+              wrong_format: "lahko vsebuje le črke, številke, - in _"
+        shoppe/delivery:
+          attributes:
+            delivery_service_id:
+              must_be_specified: mora biti izpolnjeno
+              not_suitable: ne gre uporabiti za to naročilo
+        shoppe/order:
+          attributes:
+            delivery_service_id:
+              must_be_specified: Mora biti izpolnjeno
+        shoppe/product:
+          attributes:
+            permalink:
+              wrong_format: "lahko vsebuje le črke, številke, - in _"
+            base:
+              can_belong_to_root: mora biti dodeljeno drugemu produktu
+        shoppe/order_item:
+          attributes:
+            quantity:
+              too_high_quantity: presega število izdelkov na zalogi
+        shoppe/payment:
+          refund_failed: "Znesek povračila denarja mora biti manjši od vplačanega (%{refundable_amount})"
+
+  will_paginate:
+    next_label: "Naprej &#8594;"
+    page_gap: "&hellip;"
+    previous_label: "&#8592; Nazaj"
+
+    page_entries_info:
+
+      single_page:
+        zero:  "Noben %{model} najden"
+        one:   "Prikazan 1 %{model}"
+        other: "Prikazani vsi %{count} %{model}"
+
+      single_page_html:
+        zero:  "Noben %{model} najden"
+        one_html:   "Prikazan <b>1</b> %{model}"
+        other_html: "Prikazani vsi <b>all&nbsp;%{count}</b> %{model}"
+
+      multi_page: "Prikazani %{model} %{from} - %{to} od %{count}"
+      multi_page_html: "Prikazani %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> od <b>%{count}</b>"
+
+  helpers:
+    number_to_weight:
+      kg: kg
+    page_entries_info:
+      one_page:
+        display_entries: Prikaže vnose
+    attachment_preview:
+      delete: Zbriši
+      delete_confirm: "Ste prepričani, da želite izbrisati to priponko?"
+      no_attachment: Ni priponke
+
+  shoppe:
+
+    # common
+    cancel: Prekliči
+    close: Zapri
+    delete: Zbriši
+    edit: Uredi
+    import: Vstavi
+    remove: Odstrani
+
+    removed_it: "%{it} je bil uspešno odstranjen"
+    save_settings: Shrani nastavitve
+    separate_delivery_address: Ločen naslov dostave
+    service_available: Storitev bo na voljo za uporabo
+    service_default: Storitev bo samodejno uporabljena (če je mogoče)
+    settings_title: Nastavitve
+    settings_not_in_demo: Nastavitev ne morete spreminjati v demo načinu.
+    set_prices: Nastavi cene
+    shoppe_back: Nazaj v trgovino
+    sku: SKU
+    status: Stanje
+    stock: Zaloga
+    stock_current: Trenutna zaloga
+    stock_control: Preveri zalogo
+    stock_control_enable: Želite preveriti zalogo za ta izdelek?
+    stock_levels: Raven zaloge
+    stock_levels_for: Raven zaloge za %{item}
+    stock_none: Ni na zalogi
+    system_settings: Nastavitve sistema
+    tax_rate: Davčna stopnja
+    tax_rate_apply_to: Uporabi za naročila, pri katerih se %{to} ujema z eno izmed spodaj navedevih držav
+    tax_rate_delete_confirm: Ste prepričani. da želite odstraniti to davčno stopnjo?
+    tax_rate_details: Podatki o davčni stopnji
+    tax_rate_new: Nova davčna stopnja
+    tax_rate_note: Ne spreminjajte davčnih stopenj, ki so že v rabi.
+    tax_rates: Davčne stopnje
+    tax_rates_back: Nazaj do davčnih stopenj
+    tax_none: Ni davka
+    telephone: Telefon
+    total: Skupno
+    total_weight: Skupna teža
+    tracking_url: Tracking URL
+    unknown: Neznano
+    updated_it: "%{it} je bilo uspešno posodobljeno"
+    users: Uporabniki
+    users_back: Nazaj do uporabnikov
+    user_delete_confirm: Ste prepričani, da želite odstraniti tega uporabnika?
+    user_details: Podrobnosti o uporabniku
+    user: Uporabnik
+    user_edit: Urejanje uporabnika
+    user_new: Nov uporabnik
+    user_not_in_demo: Uporabniških profilov ne morete spreminjati v demo načinu.
+    user_not_yourself: Ne morete odstraniti sebe
+    variants: Različice
+    variants_back: Nazaj do različic
+    variants_of: Različice od %{product}
+    variant_delete_confirm: Ste prepričani, da želite odstraniti to različico?
+    variant_of: Različica od %{product}
+    variant_new: Nova različica
+    variant_save: Shrani različico
+    value: Vrednost
+    website_properties: Lastnosti spletne strani
+    weight: Teža
+    weight_allowance: Dovoljena teža
+
+    submit: Objavi
+
+    attachments:
+      remove_notice: Priponka uspešno odstranjena
+      countries:
+        back: Nazaj do držav
+      continent: Celina
+      countries: Države
+      country_details: Podrobnosti o državi
+      create_notice: Država uspešno dodana
+      delete_confirmation: Ste prepričani, da želite odstraniti to državo?
+      destroy_notice: Država je bila uspešno odstranjena
+      eu?: EU?
+      eu_member: Članica EU?
+      is_eu_member: Je država članica EU?
+      iso_alpha_2: ISO 3166-1-alpha-2
+      iso_alpha_3: ISO 3166-1-alpha-3
+      name: Ime
+      new_country: Nova država
+      tld: Vrhnja internetna domena
+      update_notice: Država je bila uspešno posodobljena
+      service_prices:
+        all_countries: Vse države
+        back: Nazaj do cenovnika
+        back_to_delivery_services: Nazaj do ponudnikov dostave
+        code: Koda
+      cost: Cena
+      cost_price: Dobavna cena
+      countries: Države
+      create_notice: Cene so bile uspešno dodane
+      delivery_services: Ponudniki dostave
+      destroy_notice: Cena je bila uspešno odstranjena
+      identification_weight: Identifikacija in teža
+      max_weight: Maximalna teža
+      min_weight: Minimalna teža
+      new_price: Nova cena
+      no_tax: Brez davka
+      price: Cena
+      pricing: Določanje cene
+      pricing_for: "Določanje cene dostave za %{delivery_name}"
+      tax_rate: Davčna stopnja
+      update_notice: Cena je bila uspešno posodobljena
+      weight_allowance: Dovoljena teža
+      help:
+        countries: Ta dostava je na voljo samo za naročila v navedenih državah.
+
+    delivery_services:
+      active?: Dejaven?
+      active: Dejaven
+      active_info: Service will be available for use
+      back: Back to delivery services
+      code: Code
+      courier: Dostavljalec
+      courier_name: Ime dostavljalca
+      create_notice: Ponudnik dostave je bil uspešno dodan
+      default?: Samodejno?
+      default: Samodejno
+      default_info: Storitev bo samodejno uporabljena (če je mogoče)
+      delivery_services: Ponudniki dostave
+      destroy_notice: Ponudnik dostave uspešno odstranjen
+      delete_confirmation: A ste prepričani, da želite odstraniti tega ponudnika dostave?
+      details: Podrobnosti
+      name: Ime
+      new: Nov ponudnik dostave
+      no_services: Ni nobenih ponudnikov dostave.
+      prices: Cene
+      set_prices: Nastavi cene
+      tracking_url: Tracking URL
+      tracking_url_help_html: Uporabi <code>{{consignment_number}}</code> za vstavitev številke pošiljke.
+      update_notice: Ponudnik dostave je bil uspešno posodobljen
+    imports:
+      example_file: Primer formata
+      file_upload: Datoteka za uvoz
+      required_formats: Format mora biti csv, xls or xlsx.
+      errors:
+        no_file: Nobena datoteka ni bila izbrana za uvoz
+        unknown_format: "Nepoznan format datoteke: %{filename}"
+
+    orders:
+      accept: Sprejmi
+      accept_notice: Naročilo je bilo uspešno sprejeto
+      add_payment: Dodaj način plačila/plačilo
+      add_item: Dodaj izdelek
+      address: Naslov
+      amount: Količina
+      back_to_order: Nazaj do naročila
+      back_to_orders: Nazaj do naročil
+      billing_address: Plačilni naslov
+      billing_delivery_address: Plačilni naslov/Dostavni naslov
+      build_time: Čas priprave izdelka
+      company: Podjetje
+      consignment_number: Številka naročila
+      cost: Cena
+      country: Država
+      create_order: Dodaj naročilo
+      create_notice: Naročilo je bilo uspešno dodano
+      customer: Stranka
+      delivery_address: Delivery address
+      delivery_name: Ime naročila
+      edit_order: Spremeni naročilo
+      email_address: Elektronska pošta
+      first_name: Ime
+      from_payment: iz plačila
+      id: ID
+      in_progress_warning: Stranka še vedno sestavlja naročilo. Trenutno si lahko ogledate le izdelke, ki jih je stranka že izbrala.
+      invoice_number: Številka računa
+      insufficient_stock_order: "Presega število na zalogi %{out_of_stock_items}. Količina je bila spremenjena na največje možno število trenutne zaloge."
+      item: Izdelek
+      last_name: Priimek
+      mark_as_shipped: Označi kot odposlano
+      method: Način
+      missing_delivery_service: Nobena dosegljiva dostava ni na voljo. Naročilo ne more biti brez primernega ponudnika dostave.
+      name: Ime
+      new_order: Novo naročilo
+      no_delivery_required: Dostava ni potrebna za to naročilo.
+      no_orders: Ni nobenih naročil.
+      no_payments: To naročilo še ni plačano...
+      notes: Opombe
+      number: Število
+      order: Naročilo
+      order_accepted: Naročilo oddano
+      order_balance: Bilanca naročila
+      order_items: Naročeni izdelki
+      order_no_html: "Naročilo <b>#%{order_number}</b>"
+      order_number: Številka naročila
+      order_received: Naročilo sprejeto
+      order_rejected: Naročilo zavrnjeno
+      order_shipped: Naročilo odposlano
+      ordered_products: Naročeni izdelki
+      orders: Naročila
+      payment: Plačilo
+      payment_remove_confirmation: Ste prepričani, da želite odstraniti to plačilo?
+      payments: Plačila
+      phone_number: Telefonska številka
+      post_code: Poštna številka
+      price: Cena
+      product: Izdelek
+      products: Izdelki
+      qty: Qty
+      quantity: Količina
+      received_between: Prejeto med
+      reference: Referenca
+      refund: Povračilo denarja
+      refunded?: Denar povrnjen?
+      reject: Zavrni
+      reject_notice: Naročilo je bilo uspešno zavrnjeno
+      save_order: Shrani naročilo
+      search: Išči
+      search_orders: Išči naročila
+      select_country: Izberite državo
+      customer: Stranka
+      select_customer: Izberite stranko ali pustite prazno
+      separate_delivery_address: Ločen naslov dostave
+      ship_notice: Naročilo je bilo uspešno odposlano
+      sku: SKU
+      sla_warning: Kakršnekoli spremembe količine bodo posodobile primerno število izdelka na zalogi.
+      status: Stanje
+      stock: Zaloga
+      sub_total: Vmesna vsota
+      tax: Davek
+      telephone: Telefon
+      total: Skupno
+      type: Vrsta
+      unit_price: Cena količinske enote
+      update_notice: Naročilo je bilo uspešno shranjeno
+      use_separate_delivery_address?: Želite uporabiti drugačen naslov za dostavo?
+      weight: Teža
+
+      status_bar:
+        by_user: "od %{user}"
+        consignment_no_html: "Pošiljka #<b>%{consignment_number}</b>"
+        from_ip: "od %{ip}"
+        on_date: "%{on}"
+        tracking_url:  Tracking URL
+
+      despatch_note:
+        despatch_note: Listek z navodili za uporabo
+        footer: Zahvaljujemo se vam za vaše naročilo!
+        order_number: Številka naročila
+        order_placed: Naročilo oddano
+        packed?: Zapakirano?
+        product: Izdelek
+        quantity: Količina
+        sku: SKU
+        telephone: Telefon
+        total_weight: Skupna teža
+        weight: Teža
+
+      statuses:
+        accepted: Sprejeto
+        building: Naročujem
+        confirming: Potrjujem
+        received: Prejeto
+        rejected: Zavrnjeno
+        shipped: Odposlano
+    product_category:
+      attachments: Priponke
+      back_to_categories: Nazaj do seznama kategorij
+      category_details: Podrobnosti o kategoriji
+      choose_product_category: Izberite kategorijo izdelka
+      create_notice: Kategorija je bila uspešno dodana
+      delete_confirmation:  Ste prepričani, da želite odstraniti to kategorijo?
+      description: Opis
+      destroy_notice: Kategorija je bila uspešno odstranjena
+      destroy_alert: Kategorije ni bilo mogoče odstraniti
+      image: Slika
+      name: Ime
+      new_category: Nova kategorija
+      no_categories: Ni nobenih kategirj za prikazati.
+      permalink: Stalna povezava
+      permalink_includes_ancestors: Prefix links in store with ancestor categories
+      product_categories: Kategorije izdelka
+      update_notice: Kategorija je bila uspešno spremenjena
+      nesting:
+        blank_option: Noben
+        category_nesting: Gnezdenje
+        category_parent: Starš
+        current_category: Trenutno
+        no_children: Ni otrok
+        hierarchy: Hierarhija
+
+    products:
+      add_attachments: Preglej/dodaj priponko
+      add_attribute: Dodaj pridevek
+      attachments: Priponke
+      attributes: Pridevki
+      back_to_products: Nazaj do seznama izdelkov
+      cost_price: Dobavna cena
+      create_notice: Izdelek je bil uspešno dodan
+      datasheet: Podatkovnik
+      default_image: Samodejna slika
+      description: Opis
+      destroy_notice: Izdelek je bil uspešno odstranjen
+      edit: Uredi
+      enable_stock_control?:  Uporabite preverjanje zaloge za ta izdelek?
+      featured?: Oglaševan izdelek?
+      featured_info:  Če označite, bo izdelek prikazan na vaši domači strani
+      import_products: Importiraj izdelke
+      in_the_box: "Kaj je v škatli?"
+      name: Ime
+      new_product: Nov izdelek
+      no_products: Nobenih izdelkov ni bilo najdenih.
+      no_stock: Ni na zalogi
+      no_tax: Brez davka
+      on_sale?: Na prodaj?
+      on_sale_info:  Če označite, bodo v trgovini izdelek lahko videli vsi
+      permalink: Stalna povezava
+      price: Cena
+      price_variants: Cena/Variacije
+      pricing: Določanje cene
+      product_category: Kategorija izdelka
+      product_information: Podatki o izdelku
+      products: Izdelki
+      public?: Javno?
+      remove: Odstrani
+      searchable?: Najdljivo?
+      short_description: Kratek opis
+      sku: SKU
+      stock: Zaloga
+      stock_control: Preverjanje zaloge
+      stock_levels: Raven zaloge
+      tax_rate: Davčna stopnja
+      value: Vrednost
+      variants: Različice
+      update_notice: Izdelek je bil uspešno spremenjen
+      website_properties: Lastnosti spletne strani
+      weight: Teža
+
+      filter:
+        sku: filtriraj po sku izdelka
+        name_or_description: filtriraj po imenu izdelka ali opisu
+
+      imports:
+        help: "Products and Categories are matched by name.  If no product is found, a new one will be created with all the attributes on the line.  If a product is found, only the quantity will be updated and all other fields will be ignored.  If no category is found, one with that name will be created .  One product per line. You can leave permalink field empty if you don't want to add one and to be generated automatically."
+        success: Izdelki so bili uspešno importirani
+        examples:
+          first:
+            name: Plišast medvedek
+            sku: BEAR001
+            permalink: plush-teddy-bear
+            description: Fantastično plišast in mehek. Odličen za vse starosti.
+            short_description: Kupite ga svojim otrokom.
+            weight: 1.2
+            price: 84.95
+            category_name: Plišasti medvedki
+            qty: 20
+          second:
+            name: Običajen plišasti medvedek
+            sku: BEAR002
+            permalink: ""
+            description: Narejen iz PVC-ja. Made out of PVC. A little cuddly.
+            short_description: Kupite ga osebi z dvema levima rokama.
+            weight: 0.6
+            price: 24.95
+            category_name: Plišasti medvedki
+            qty: 100
+          third:
+            name: Lesen medvedek
+            sku: BEAR003
+            permalink: stick-teddy-bear
+            description: Narejen iz lesenih palic. Ne preveč mehek in iz naravnih materialov. Vnetljiv.
+            short_description: Tega kupite znancu, ki zbira medvedke.
+            weight: 0.521
+            price: 1.95
+            category_name: Plišasti medvedki
+            qty: 50
+
+    refund:
+      intro_html: "Če želite povračilo za to transakcijo, v spodnje okence vpišite količino denarja, ki ga želite imeti povrnjenega, in kliknite na Povračilo. Največje možno povračilo je <b>%{amount}</b>."
+      issue_refund: Izdaj povračilo
+      refund: Povračilo
+
+    sessions:
+      admin_login: Administratorjev vpis
+      create_alert: Elektronski naslov in/ali geslo, ki ste ga vpisali, je napačen. Prosim preverite in poskusite še enkrat.
+      back_to_login: Nazaj na vpis
+      email:  Elektronski naslov
+      login: Vpis
+      password: Geslo
+      reset: Ponastavi
+      reset_password: Ponastavi geslo
+      reset_password?: Želite ponastaviti geslo?
+      reset_alert: Ni uporabnika s tem elektronskim naslovom
+      reset_notice: "Email z novim geslom je bil poslan na %{email_address}"
+
+    shared:
+      back_to_shoppe: Nazaj do trgovine
+      error: Napaka
+      error_occurred: Prišlo je do napake
+
+    stock_level_adjustments:
+      add: Dodaj
+      adjustment: Uredi
+      back_to_product: Nazaj na seznam izdelkov
+      create_notice: Urejanje je bilo uspešno
+      current_stock_level_html: "Trenutna zaloga je <b>%{item_stock}</b>"
+      date: Datum
+      description: Opis
+      edit_product: Uredi izdelek
+      invalid_item_type: "Neveljaven item_type (mora biti eden izmed %{suitable_objects})"
+      stock_levels_for: "Zaloga %{item_name}"
+      stock_levels_title: "Zaloga - %{item_name}"
+
+    tax_rates:
+      address_type_option: "Naročila se naj nanašajo na %{address} naslove, ki ustrezajo eni izmed spodaj naštetih držav"
+      all_countries: Vse države
+      back_to_tax_rates: Nazaj na davčne stopnje
+      billing: Račun
+      country_restriction: Omejitev na državo
+      create_notice: Davčna stopnja je bila uspešno dodana
+      delete_confirmation: Ste prepričani, da želite odstraniti to davčno stopnjo?
+      delivery: dostava
+      destroy_notice: Davčna stopnja je bila uspešno odstranjena
+      name: Ime
+      new_tax_rate: Nova davčna stopnja
+      rate: Stopnja
+      rate_details: Podrobnosti o stopnji
+      tax_rates: Davčne stopnje
+      update_notice: Davčna stopnja je bila uspešno spremenjena
+
+    users:
+      back_to_users: Nazaj do uporabnikov
+      create_notice: Uporabnik je bil uspešno dodan
+      delete_confirmation:  Ste prepričani, da želite odstraniti tege uporabnika?
+      demo_mode_error: V demo načinu ne morete spreminjati nastavitve za uporabnike.
+      destroy_notice: Uporabnik je bil uspešno odstranjen
+      email: Elektronski naslov
+      first_name: Ime
+      last_name: Priimek
+      login: Vpis
+      name: Ime
+      new_user: Nov uporabnik
+      password: Geslo
+      password_confirmation: ...in še enkrat
+      self_remove_error: Sami sebe ne morete odstraniti
+      update_notice: Uporabnik je bil uspešno spremenjen
+      user_details: Podrobnosti o uporabniku
+      users: Uporabniki
+
+    variants:
+      back_to_variants: Nazaj do različic
+      cost_price: Cena dobave
+      create_notice: Različica je bila uspešno dodana
+      default_variant?: Samodejna različica?
+      default_variant_info: Označite, če želite, da to postane samodejna različica
+      delete_confirmation: Ste prepričani, da želite odstraniti to različico?
+      destroy_notice: Različica je bila uspešno odstranjena
+      edit_product: Uredi izdelek
+      edit_variant: Nova različica
+      enable_stock_control?: Vklopite preverjanje zaloge za ta izdelek?
+      image: Slika
+      name: Ime
+      no_products: Ni izdelkov za prikaz.
+      no_stock: Ni na zalogi
+      no_tax: Ni davka
+      new_variant: Nova različica
+      on_sale?: Na prodaj?
+      on_sale_info: Označite, če želite, da bo izdelek prikazan vsem v trgovini
+      permalink: Stalna povezava
+      price: Cena
+      pricing: Določanje cene
+      product_information: Podatki o izdelku
+      save_variant: Shrani različico
+      sku: SKU
+      stock: Zaloga
+      stock_control: Preverjanje zaloge
+      tax_rate: Davčna stopnja
+      update_notice: Različica je bila uspešno spremenjena
+      variants: Različice
+      variants_of: "Različice %{product}"
+      website_properties: Lastnosti spletne strani
+      weight: Teža
+
+    payments:
+      create_notice: Plačilo je bilo uspešno dodano
+      destroy_notice: Plačilo je bilo uspešno odstranjeno
+      refund_notice: Povračilo je poteklo uspešno.
+
+    localisations:
+      localisations: Lokalizacije
+      back: Nazaj
+      back_to_localisations: Nazaj do lokalizacij
+      localisations_of: Lokalizacije %{name}
+      product_information: Podatki o izdelku
+      locales: Jeziki
+      choose_locale: Prosim izberite jezik
+      save_localisation: Shranite lokalizacijo
+      new_localisation: Nova lokalizacija
+      edit_localisation: Uredi lokalizacijo
+      localisation_created: Lokalizacija uspešno dodana
+      localisation_updated: Lokalizacija uspešno spremenjena
+      localisation_destroyed: Lokalizacija uspešno odstranjena
+      language: Jezik
+      no_localisations: Ni bilo najdenih nobenih lokalizacij.
+      delete_confirmation: Ste prepričani?
+
+    customers:
+      customers: Stranke
+      new_customer: Nova stranka
+      search_customer: Išči stranko
+      name: Ime
+      company: Podjetje
+      email: Elektronski naslov
+      phone: Telefon
+      mobile_phone: Mobitel
+      no_customers: Ni bilo najdenih nobenih strank.
+      search: Išči
+      first_or_last_name: Ime ali priimek
+      back_to_customers_list: Nazaj do seznama strank
+      new_address: Nov naslov
+      edit: Uredi
+      customer_information: Podatki o stranki
+      cancel: Prekliči
+      first_name: Ime
+      last_name: Priimek
+      delete: Zbriši
+      save: Shrani
+      creating_customer: Dodajam stranko...
+      updating_customer: Posodabljam stranko...
+      delete_confirmation: Ste prepričani, da želite odstaniti to stranko?
+      type: Vrsta
+      default: Privzeto
+      address: Naslov
+      no_addresses: Ni bilo najdenih nobenih naslovov.
+      addresses: Naslovi
+      adresse: Naslov
+      created_successfully: Stranka je bila uspešno dodana.
+      updated_successfully: Stranka je bila uspešno spremenjena.
+      deleted_successfully: Stranka je bila uspešno odstranjena.
+
+    addresses:
+      address_information: Podatki o naslovu
+      back_to_customer: Nazaj do stranke
+      addresses: Nov naslov
+      created_successfully: Naslov je bil uspešno dodan.
+      updated_successfully: Naslov je bil uspešno spremenjen.
+      deleted_successfully: Naslov je bil uspešno odstranjen.
+    navigation:
+      admin_primary:
+        customers: Stranke
+        orders: Naročila
+        products: Izdelki
+        product_categories: Kategorije izdelkov
+        delivery_services: Ponudniki dostave
+        tax_rates: Davčne stopnje
+        users: Uporabniki
+        countries: Države
+        settings: Nastavitve
+
+    settings:
+
+      settings: Nastavitve
+      system_settings: Sistemske nastavitve
+      demo_mode_error: V demo načinu ne morete spreminjati nastavitev.
+      update_notice:  Nastavitve so bile uspešno spremenjene.
+
+      types:
+        # Force certain settings to certain type
+        demo_mode: boolean
+
+      labels:
+        # Labels for fields go here
+        email_address: Elektronski naslov trgovine
+        store_name: Ime trgovine
+        currency_unit: Valuta
+        tax_name: Ime davka
+        demo_mode: Način demo
+
+      options:
+        # Options for boolean settings
+        demo_mode:
+          affirmative: Uporabi
+          negative: Ne uporabi
+      help:
+        # Help text for individual fields
+        currency_unit: Znak, ki bo prikazan zraven vseh številk, ki predstavljajo znesek denarja.Ta velja samo za administrativno namizje in ga je potrebno posebej nastaviti v vaši aplikaciji.
+        demo_mode: Če to vklopite, bo administrativno namizje vaše trgovine vsem uporabnikom omogočilo vpis in onemogočilo spremembe do vaših uporabniških računov. To možnost uporabite pazljivo in nikoli omogočeno za produkcijsko trgovino.
+        email_address: Ta elektronski naslov bo uporabljen za vsa odposlana sporočila.
+        store_name: To je ime vaše trgovine, ki bo uporabljeno v adminstrativnem namizju trgovine in v samodejnih odposlanih elektronskih sporočilih.
+        tax_name: Ime za davek, ki bo prikazan v administrativnem namizju. Običajno VAT v evropskih državah.
+
+      save_settings: Shrani nastavitve
+      page_title: Nastavitve
+
+      defaults:
+        currency_unit: $
+        demo_mode: false
+        email_address: sales@example.com
+        store_name: Widgets Inc.
+        tax_name: Davek
+
+    layouts:
+      shoppe:
+        application:
+          goto: Pojdi na
+        logged_in_as: "Vpisan kot %{user_name}"
+        logout: Odjava

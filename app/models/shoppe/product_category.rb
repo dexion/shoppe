@@ -61,6 +61,10 @@ module Shoppe
       attachments.for('image')
     end
 
+    def image_file=(file)
+      attachments.build(file: file, role: 'image')
+    end
+
     private
 
     def set_permalink

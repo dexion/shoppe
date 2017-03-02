@@ -47,6 +47,7 @@ module Shoppe
     validates :weight, numericality: true
     validates :price, numericality: true
     validates :cost_price, numericality: true, allow_blank: true
+    validates :unit, allow_blank: true
 
     # Before validation, set the permalink if we don't already have one
     before_validation { self.permalink = name.parameterize if permalink.blank? && name.is_a?(String) }
@@ -178,7 +179,7 @@ module Shoppe
           product.product_categories << begin
             Shoppe::ProductCategory.find_or_initialize_by(name: row['category_name'])
           end
-          
+
           product.save!
 
           qty = row['qty'].to_i

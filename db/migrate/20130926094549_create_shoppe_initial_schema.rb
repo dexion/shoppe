@@ -123,6 +123,7 @@ class CreateShoppeInitialSchema < ActiveRecord::Migration[5.0]
       t.decimal  'weight',              precision: 8, scale: 3, default: 0.0
       t.decimal  'price',               precision: 8, scale: 2, default: 0.0
       t.decimal  'cost_price',          precision: 8, scale: 2, default: 0.0
+      t.string   'unit',                default: "item"
       t.integer  'tax_rate_id'
       t.datetime 'created_at'
       t.datetime 'updated_at'

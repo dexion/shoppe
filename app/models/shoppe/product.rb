@@ -47,7 +47,7 @@ module Shoppe
     validates :weight, numericality: true
     validates :price, numericality: true
     validates :cost_price, numericality: true, allow_blank: true
-    validates :unit, allow_blank: true
+    validates :unit, presence:true, allow_blank: true
 
     # Before validation, set the permalink if we don't already have one
     before_validation { self.permalink = name.parameterize if permalink.blank? && name.is_a?(String) }

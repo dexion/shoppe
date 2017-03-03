@@ -5,7 +5,6 @@ class CreateShoppeCustomers < ActiveRecord::Migration[5.0]
       t.string :last_name
       t.string :company
       t.string :phone
-      t.string :mobile
 
       t.timestamps
     end

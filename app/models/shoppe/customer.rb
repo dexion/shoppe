@@ -1,6 +1,5 @@
 module Shoppe
   class Customer < ApplicationRecord
-    EMAIL_REGEX = /\A\b[A-Z0-9\.\_\%\-\+]+@(?:[A-Z0-9\-]+\.)+[A-Z]{2,6}\b\z/i
     PHONE_REGEX = /\A[+?\d\ \-x\(\)]{7,}\z/
 
     self.table_name = 'shoppe_customers'
@@ -10,7 +9,6 @@ module Shoppe
     has_many :orders, dependent: :restrict_with_exception, class_name: 'Shoppe::Order'
 
     # Validations
-    validates :email, presence: true, uniqueness: true, format: { with: EMAIL_REGEX }
     validates :phone, presence: true, format: { with: PHONE_REGEX }
 
     # All customers ordered by their ID desending

@@ -9,7 +9,7 @@ module Shoppe
     # The customer which this address should be linked to
     #
     # @return [Shoppe::Customer]
-    belongs_to :customer, class_name: 'Shoppe::Customer'
+    belongs_to :customer,inverse_of: :addresses, class_name: 'Shoppe::Customer'
 
     # The order which this address should be linked to
     #

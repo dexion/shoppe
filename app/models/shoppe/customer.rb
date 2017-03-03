@@ -4,7 +4,7 @@ module Shoppe
 
     self.table_name = 'shoppe_customers'
 
-    has_many :addresses, dependent: :restrict_with_exception, class_name: 'Shoppe::Address'
+    has_many :addresses, inverse_of: :customer, dependent: :restrict_with_exception, class_name: 'Shoppe::Address'
 
     has_many :orders, dependent: :restrict_with_exception, class_name: 'Shoppe::Order'
 

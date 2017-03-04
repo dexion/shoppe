@@ -92,6 +92,13 @@ module Shoppe
       end
     end
 
+    ## Return products attachment for the default_image role
+    ##
+    ## @return [String]
+    #def default_image
+    #    self.product.conditions(.attachments.for('default_image')
+    #end
+
     # The total weight of the item
     #
     # @return [BigDecimal]

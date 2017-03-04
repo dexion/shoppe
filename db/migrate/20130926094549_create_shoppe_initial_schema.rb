@@ -56,7 +56,6 @@ class CreateShoppeInitialSchema < ActiveRecord::Migration[5.0]
       t.string   'billing_address1'
       t.string   'billing_address2'
       t.string   'billing_address3'
-      t.string   'billing_address4'
       t.string   'billing_postcode'
       t.integer  'billing_country_id'
       t.string   'email_address'
@@ -87,7 +86,6 @@ class CreateShoppeInitialSchema < ActiveRecord::Migration[5.0]
       t.string   'delivery_address1'
       t.string   'delivery_address2'
       t.string   'delivery_address3'
-      t.string   'delivery_address4'
       t.string   'delivery_postcode'
       t.integer  'delivery_country_id'
     end

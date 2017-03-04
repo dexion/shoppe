@@ -7,7 +7,6 @@ class CreateShoppeAddresses < ActiveRecord::Migration[5.0]
       t.string :address1
       t.string :address2
       t.string :address3
-      t.string :address4
       t.string :postcode
       t.integer :country_id
 

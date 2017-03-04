@@ -47,12 +47,19 @@
     attributes:
       shoppe/address:
         address_type: Tip naslova
-        address1: Naslov 1
-        address2: Naslov 2
+        billing: Naslov za plačilo
+        delivery: Naslov za dostavo
+        address1: Ulica
+        address2: Hišna številka
         address3: Naslov 3
-        address4: Naslov 4
+        address4: Mesto
         postcode: Poštna številka
         country: Država
+      shoppe/customer:
+        first_name: Ime
+        last_name: Priimek
+        company: Podjetje
+        phone: Telefonska številka
       shoppe/order:
         billing_address1: Plačilni naslov 1
         billing_address3: Plačilni naslov 3

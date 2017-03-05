@@ -51,8 +51,7 @@
         delivery: Naslov za dostavo
         address1: Ulica
         address2: Hišna številka
-        address3: Naslov 3
-        address4: Mesto
+        address3: Mesto
         postcode: Poštna številka
         country: Država
       shoppe/customer:
@@ -61,14 +60,14 @@
         company: Podjetje
         phone: Telefonska številka
       shoppe/order:
-        billing_address1: Plačilni naslov 1
-        billing_address3: Plačilni naslov 3
-        billing_address4: Plačilni naslov 4
-        billing_country: Država plačila
+        billing_address1: Ulica
+        billing_address2: Hišna številka
+        billing_address3: Mesto
         billing_postcode: Poštna številka plačila
-        delivery_address1: Naslov za dostavo 1
-        delivery_address3: Naslov za dostavo 3
-        delivery_address4: Naslov za dostavo 4
+        billing_country: Država plačila
+        delivery_address1: Ulica za dostavo
+        delivery_address2: Hišna številka za dostavo
+        delivery_address3: Mesto za dostavo
         delivery_country: Država dostave
         delivery_name: Ime dostave
         delivery_service_id: Ponudnik dostave
@@ -91,6 +90,12 @@
         min_weight: Minimalna teža
         price: Cena
       shoppe/order_item:
+        price_per_unit: Cena na kos
+        name: Izdelek
+        quantity: Količina
+        full_price: Cena
+        tax: Davek
+        weight: Teža
         ordered_item: Naročen izdelek
         quantity: Količina
       shoppe/payment:
@@ -137,6 +142,18 @@
           many: zaradi %{count} napak %{model} ni bilo mogoče shraniti
           other: zaradi %{count} napak %{model} ni bilo mogoče shraniti
       models:
+        shoppe/address:
+          attributes:
+            address1:
+              blank: Ni ulice/vasi
+            address2:
+              blank: Ni hišne številke
+            address3:
+              blank: Mesto ni navedeno
+            postcode:
+              blank: Ni poštne številke
+
+              wrong_format: "lahko vsebuje le črke, številke, - in _"
         shoppe/product_category:
           attributes:
             permalink:
@@ -397,8 +414,9 @@
       price: Cena
       product: Izdelek
       products: Izdelki
-      qty: Qty
+      qty: Kol
       quantity: Količina
+      change_qty: Spremeni
       received_between: Prejeto med
       reference: Referenca
       refund: Povračilo denarja
@@ -422,7 +440,8 @@
       telephone: Telefon
       total: Skupno
       type: Vrsta
-      unit_price: Cena količinske enote
+      unit: Količinska enota
+      unit_price: Cena na enoto
       update_notice: Naročilo je bilo uspešno shranjeno
       use_separate_delivery_address?: Želite uporabiti drugačen naslov za dostavo?
       weight: Teža

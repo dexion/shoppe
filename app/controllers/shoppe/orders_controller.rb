@@ -30,7 +30,6 @@ module Shoppe
             @order.billing_address1 = billing.address1
             @order.billing_address2 = billing.address2
             @order.billing_address3 = billing.address3
-            @order.billing_address4 = billing.address4
             @order.billing_postcode = billing.postcode
             @order.billing_country_id = billing.country_id
           end
@@ -39,7 +38,6 @@ module Shoppe
             @order.delivery_address1 = delivery.address1
             @order.delivery_address2 = delivery.address2
             @order.delivery_address3 = delivery.address3
-            @order.delivery_address4 = delivery.address4
             @order.delivery_postcode = delivery.postcode
             @order.delivery_country_id = delivery.country_id
           end

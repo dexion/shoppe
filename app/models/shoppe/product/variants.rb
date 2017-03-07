@@ -13,16 +13,6 @@ module Shoppe
     scope :root, -> { where(parent_id: nil) }
 
     # If a variant is created, the base product should be updated so that it doesn't have stock control enabled
-    after_save do
-      if parent
-        parent.price = 0
-        parent.cost_price = 0
-        parent.tax_rate = nil
-        parent.weight = 0
-        parent.stock_control = false
-        parent.save if parent.changed?
-      end
-    end
 
     # Does this product have any variants?
     #

@@ -66,7 +66,6 @@ module Shoppe
         self.delivery_address1 = nil
         self.delivery_address2 = nil
         self.delivery_address3 = nil
-        self.delivery_address4 = nil
         self.delivery_postcode = nil
         self.delivery_country = nil
       end

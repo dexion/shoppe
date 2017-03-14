@@ -18,19 +18,23 @@ class Shoppe::AttachmentUploader < CarrierWave::Uploader::Base
         !file.content_type.include? 'image'
     end
 
-    def resize_to_fit(width, height, combine_options: {})
+    def mogrify(width,height,options = {})
         manipulate! do |img|
-            img.combine_options do |cmd|
-                cmd.resize "#{width}x#{height}"
-                append_combine_options cmd, combine_options
+            img.format("png") do |c|
+                c.fuzz        "0%"
+                c.trim
+                c.rotate      "#{options[:rotate]}" if options.has_key?(:rotate)
+                cmd.resize    "#{width}x#{height}"
+                c.push        '+profile'
+                c.+           "!xmp,*"
+                c.profile     "../../lib/color_profiles/sRGB_v4_ICC_preference_displayclass.icc"
+                c.colorspace  "sRGB"
             end
-            img = yield(img) if block_given?
             img
         end
     end
-
     # Create different versions of your uploaded files:
     version :thumb, if: :image? do
-        process resize_to_fit: [500, 500,{fuzz: "0%"}]
+        process mogrify: [500, 500]
     end
 end

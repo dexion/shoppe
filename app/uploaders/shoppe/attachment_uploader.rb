@@ -20,11 +20,11 @@ class Shoppe::AttachmentUploader < CarrierWave::Uploader::Base
 
     def mogrify(width,height,options = {})
         manipulate! do |img|
-            img.format("png") do |c|
+            img.format("jpg") do |c|
                 c.fuzz        "0%"
                 c.trim
                 c.rotate      "#{options[:rotate]}" if options.has_key?(:rotate)
-                cmd.resize    "#{width}x#{height}"
+                c.resize    "#{width}x#{height}"
                 c.push        '+profile'
                 c.+           "!xmp,*"
                 c.profile     "../../lib/color_profiles/sRGB_v4_ICC_preference_displayclass.icc"

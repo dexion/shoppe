@@ -382,7 +382,7 @@
       id: ID
       in_progress_warning: Stranka še vedno sestavlja naročilo. Trenutno si lahko ogledate le izdelke, ki jih je stranka že izbrala.
       invoice_number: Številka računa
-      insufficient_stock_order: "Presega število na zalogi %{out_of_stock_items}. Količina je bila spremenjena na največje možno število trenutne zaloge."
+      insufficient_stock_order: "Vaša izbira presega število na zalogi za %{out_of_stock_items}. Količina je bila spremenjena na največje možno število trenutne zaloge."
       item: Izdelek
       last_name: Priimek
       mark_as_shipped: Označi kot odposlano

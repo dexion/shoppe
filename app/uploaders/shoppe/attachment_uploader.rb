@@ -20,6 +20,22 @@ class Shoppe::AttachmentUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb, if: :image? do
-    process resize_to_fit: [300, 300]
+    process mogrify: [500, 500]
+  end
+  def mogrify(options = {})
+      manipulate! do |img|
+          img.format("png") do |c|
+              c.fuzz        "0%"
+              c.trim
+              c.rotate      "#{options[:rotate]}" if options.has_key?(:rotate)
+              c.resize      "#{options[:resolution]}>" if options.has_key?(:resolution)
+              c.resize      "#{options[:resolution]}<" if options.has_key?(:resolution)
+              c.push        '+profile'
+              c.+           "!xmp,*"
+              c.profile     "#{Rails.root}/lib/color_profiles/sRGB_v4_ICC_preference_displayclass.icc"
+              c.colorspace  "sRGB"
+          end
+          img
+      end
   end
 end

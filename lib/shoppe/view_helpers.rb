@@ -2,7 +2,7 @@ module Shoppe
   module ViewHelpers
     # Returns currency values with the currency unit as specified by the Shoppe settings
     def number_to_currency(number, options = {})
-      options[:unit] ||= Shoppe.setting.currency_unit
+        options[:unit] ||= Shoppe.settings.currency_unit
       super
     end
 

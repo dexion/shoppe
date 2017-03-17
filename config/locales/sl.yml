@@ -416,6 +416,7 @@
       products: Izdelki
       qty: Kol
       quantity: Količina
+      quantity_updated: Količina je bila uspešno posodobljena
       change_qty: Spremeni
       received_between: Prejeto med
       reference: Referenca

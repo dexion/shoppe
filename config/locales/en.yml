@@ -400,6 +400,7 @@ en:
       products: Products
       qty: Qty
       quantity: Quantity
+      quantity_updated: Quantity has ben successfully updated.
       received_between: Received between
       reference: Reference
       refund: Refund

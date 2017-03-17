@@ -329,6 +329,7 @@ de:
       products: Produkte
       qty: Anz.
       quantity: Anzahl
+      quantity_updated: Die Menge wurde erfolgreich aktualisiert
       received_between: Erhalten zwischen
       reference: Referenz
       refund: Rückerstattung

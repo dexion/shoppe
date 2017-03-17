@@ -81,6 +81,17 @@ module Shoppe
       end
     end
 
+    def set!(amount = 1)
+      transaction do
+        self.quantity = amount
+        unless in_stock?
+          fail Shoppe::Errors::NotEnoughStock, ordered_item: ordered_item, requested_stock: self.quantity
+        end
+        save!
+        order.remove_delivery_service_if_invalid
+      end
+    end
+
     # Decreases the quantity of items in the order by the number provided.
     #
     # @param amount [Fixnum]

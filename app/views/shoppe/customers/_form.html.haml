@@ -14,14 +14,8 @@
         %dd= f.text_field :company, class: 'text'
     .splitContainer
       %dl.third
-        %dt= f.label :email, t('shoppe.customers.email')
-        %dd= f.email_field :email, class: 'text', :required => true
-      %dl.third
         %dt= f.label :phone, t('shoppe.customers.phone')
         %dd= f.telephone_field :phone, class: 'text', :required => true
-      %dl.third
-        %dt= f.label :mobile, t('shoppe.customers.mobile_phone')
-        %dd= f.text_field :mobile, class: 'text'
 
   %p.submit
     - unless @customer.new_record?

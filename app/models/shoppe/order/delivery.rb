@@ -122,14 +122,6 @@ module Shoppe
       total_weight > BigDecimal(0)
     end
 
-    # An array of all the delivery services which are suitable for this order in it's
-    # current state (based on its current weight)
-    #
-    # @return [Array] an array of Shoppe::DeliveryService objects
-    def available_delivery_services
-      delivery_service_prices.map(&:delivery_service).uniq
-    end
-
     # An array of all the delivery service prices which can be applied to this order.
     #
     # @return [Array] an array of Shoppe:DeliveryServicePrice objects
@@ -141,6 +133,14 @@ module Shoppe
       else
         []
       end
+    end
+
+    # An array of all the delivery services which are suitable for this order in it's
+    # current state (based on its current weight)
+    #
+    # @return [Array] an array of Shoppe::DeliveryService objects
+    def available_delivery_services
+      delivery_service_prices.map(&:delivery_service).uniq
     end
 
     # The recommended delivery service for this order

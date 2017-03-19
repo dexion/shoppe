@@ -63,11 +63,11 @@
         billing_address1: Ulica
         billing_address2: Hišna številka
         billing_address3: Mesto
-        billing_postcode: Poštna številka plačila
+        billing_postcode: Poštna številka
         billing_country: Država plačila
-        delivery_address1: Ulica za dostavo
-        delivery_address2: Hišna številka za dostavo
-        delivery_address3: Mesto za dostavo
+        delivery_address1: Ulica
+        delivery_address2: Hišna številka
+        delivery_address3: Mesto
         delivery_country: Država dostave
         delivery_name: Ime dostave
         delivery_service_id: Ponudnik dostave
@@ -166,7 +166,7 @@
         shoppe/order:
           attributes:
             delivery_service_id:
-              must_be_specified: Mora biti izpolnjeno
+              must_be_specified: mora biti izpolnjeno
         shoppe/product:
           attributes:
             permalink:
@@ -364,7 +364,8 @@
       back_to_order: Nazaj do naročila
       back_to_orders: Nazaj do naročil
       billing_address: Plačilni naslov
-      billing_delivery_address: Plačilni naslov/Dostavni naslov
+      delivery_address: Dostavni naslov
+      billing_delivery_address: Plačilni in dostavni naslov
       build_time: Čas priprave izdelka
       company: Podjetje
       consignment_number: Številka naročila
@@ -373,7 +374,7 @@
       create_order: Dodaj naročilo
       create_notice: Naročilo je bilo uspešno dodano
       customer: Stranka
-      delivery_address: Delivery address
+      delivery_address: Dostavni naslov
       delivery_name: Ime naročila
       edit_order: Spremeni naročilo
       email_address: Elektronska pošta
@@ -382,7 +383,7 @@
       id: ID
       in_progress_warning: Stranka še vedno sestavlja naročilo. Trenutno si lahko ogledate le izdelke, ki jih je stranka že izbrala.
       invoice_number: Številka računa
-      insufficient_stock_order: "Vaša izbira presega število na zalogi za %{out_of_stock_items}. Količina je bila spremenjena na največje možno število trenutne zaloge."
+      insufficient_stock_order: "Vaša izbira presega število na zalogi za %{out_of_stock_items}."
       item: Izdelek
       last_name: Priimek
       mark_as_shipped: Označi kot odposlano
@@ -474,6 +475,8 @@
         received: Prejeto
         rejected: Zavrnjeno
         shipped: Odposlano
+    delivery_service_prices:
+      create_notice: Nov cenik za dostavo je ustvarjen
     product_category:
       attachments: Priponke
       back_to_categories: Nazaj do seznama kategorij

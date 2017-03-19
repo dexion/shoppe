@@ -17,7 +17,7 @@
         %tr.empty
           %td= t('shoppe.product_category.no_categories')
       - else
-        - for cat in @product_categories_without_parent
+        - @product_categories_without_parent.each do |cat|
           %tr
             %td
               = link_to cat.name, [:edit, cat]

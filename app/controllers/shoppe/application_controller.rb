@@ -1,5 +1,5 @@
 module Shoppe
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ActionController
     protect_from_forgery
 
     before_filter :login_required

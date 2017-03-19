@@ -1,16 +1,21 @@
 module Shoppe
   class ProductsController < Shoppe::ApplicationController
-    before_filter { @active_nav = :products }
-    before_filter { params[:id] && @product = Shoppe::Product.root.find(params[:id]) }
+    before_action do
+        @active_nav = :products
+        params[:id] && @product = Shoppe::Product.root.find(params[:id])
+        if params[:category_id]
+            @product_category = Shoppe::ProductCategory.where(:id => params[:category_id]).first!
+        end
+    end
 
     def index
       @products_paged = Shoppe::Product.root
                                        .includes(:translations, :stock_level_adjustments, :product_categories, :variants)
                                        .order(:name)
       if params[:category_id].present?
-        @products_paged = @products_paged
-                          .where('shoppe_product_categorizations.product_category_id = ?', params[:category_id])
+          @products_paged = @product_category.products.includes(:translations, :stock_level_adjustments, :product_categories, :variants)
       end
+
 
       case
       when params[:sku]

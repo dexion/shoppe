@@ -19,8 +19,8 @@ module Shoppe
     has_many :products, class_name: 'Shoppe::Product', through: :product_categorizations
 
     # Validations
-    validates :name, presence: true
-    validates :permalink, presence: true, uniqueness: { scope: :parent_id }, permalink: true
+    #validates :name, presence: true
+    #validates :permalink, presence: true, uniqueness: { scope: :parent_id }, permalink: true
 
     # Root (no parent) product categories only
     scope :without_parent, -> { where(parent_id: nil) }
@@ -30,6 +30,11 @@ module Shoppe
 
     translates :name, :permalink, :description
     scope :ordered, -> { includes(:translations).order(:name) }
+
+    I18n.available_locales.each do |locale|
+        validates :"name_#{locale}", presence: true
+        validates :"permalink_#{locale}", presence: true, uniqueness: { scope: :parent_id }, permalink: true
+    end
 
     # Set the permalink on callback
     before_validation :set_permalink, :set_ancestral_permalink

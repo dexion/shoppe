@@ -32,9 +32,11 @@ module Shoppe
     scope :ordered, -> { includes(:translations).order(:name) }
 
     I18n.available_locales.each do |locale|
-        validates :"name", presence: true
-        validates :"permalink", presence: true, uniqueness: { scope: :parent_id }, permalink: true
+        I18n.locale = locale
+        validates :name, presence: true
+        validates :permalink, presence: true, uniqueness: { scope: :parent_id }, permalink: true
     end
+    I18n.locale = I18n.default_locale
 
     # Set the permalink on callback
     before_validation :set_permalink, :set_ancestral_permalink

@@ -32,8 +32,8 @@ module Shoppe
     scope :ordered, -> { includes(:translations).order(:name) }
 
     I18n.available_locales.each do |locale|
-        validates :"name_#{locale}", presence: true
-        validates :"permalink_#{locale}", presence: true, uniqueness: { scope: :parent_id }, permalink: true
+        validates :"name", presence: true
+        validates :"permalink", presence: true, uniqueness: { scope: :parent_id }, permalink: true
     end
 
     # Set the permalink on callback

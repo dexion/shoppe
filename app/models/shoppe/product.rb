@@ -62,6 +62,11 @@ module Shoppe
         translates :name, :permalink, :description, :short_description
         scope :ordered, -> { includes(:translations).order(:name) }
 
+        I18n.available_locales.each do |locale|
+            validates :"name", presence: true
+            validates :"permalink", presence: true, uniqueness: { scope: :parent_id }, permalink: true
+        end
+
         def attachments=(attrs)
             if attrs['default_image']['file'].present? then attachments.build(attrs['default_image']) end
             if attrs['data_sheet']['file'].present? then attachments.build(attrs['data_sheet']) end

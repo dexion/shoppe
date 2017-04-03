@@ -60,8 +60,8 @@ module Shoppe
 
         I18n.available_locales.each do |locale|
             I18n.locale = locale
-            validates :"name", presence: true
-            validates :"permalink", presence: true, uniqueness: { scope: :parent_id }, permalink: true
+            validates :name, presence: true
+            validates :permalink, presence: true, uniqueness: { scope: :parent_id }, permalink: true
             validates :description, presence: true
             validates :short_description, presence: true
         end

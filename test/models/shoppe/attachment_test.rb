@@ -3,7 +3,7 @@ require 'test_helper'
 module Shoppe
     class AttachmentTest < ActiveSupport::TestCase
         test "file should be validated" do
-            file = File.open Path.join( Rails.root, "public/images/kamen/montage.jpg" )
+            file = File.join( Rails.root, "public/images/kamen/montage.jpg" )
 
             Rails::logger.debug do
                 file.filename.to_s

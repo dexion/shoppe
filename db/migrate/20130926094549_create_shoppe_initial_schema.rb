@@ -102,9 +102,9 @@ class CreateShoppeInitialSchema < ActiveRecord::Migration[5.0]
     end
 
     create_table 'shoppe_product_categories' do |t|
-#      t.string   'name'
-#      t.string   'permalink'
-#      t.text     'description'
+      t.string   'name'
+      t.string   'permalink'
+      t.text     'description'
       t.datetime 'created_at'
       t.datetime 'updated_at'
     end
@@ -112,11 +112,11 @@ class CreateShoppeInitialSchema < ActiveRecord::Migration[5.0]
     create_table 'shoppe_products' do |t|
       t.integer  'parent_id'
       t.integer  'product_category_id'
-#      t.string   'name'
+      t.string   'name'
       t.string   'sku'
-#      t.string   'permalink'
-#      t.text     'description'
-#      t.text     'short_description'
+      t.string   'permalink'
+      t.text     'description'
+      t.text     'short_description'
       t.boolean  'active',                                      default: true
       t.decimal  'weight',              precision: 8, scale: 3, default: 0.0
       t.decimal  'price',               precision: 8, scale: 2, default: 0.0
